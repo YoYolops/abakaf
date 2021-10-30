@@ -2,7 +2,7 @@ import { IoIosCloseCircle } from 'react-icons/io';
 import { motion } from "framer-motion";
 import { useState } from "react";
 import styled from "styled-components";
-import { GiOnTarget, GiSpring } from 'react-icons/gi';
+import { GiOnTarget } from 'react-icons/gi';
 
 export default function TargetAudience() {
     const [ isClicked, setIsClicked ] = useState(false)
