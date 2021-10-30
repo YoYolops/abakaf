@@ -20,7 +20,7 @@ export default function User({ setUser, user }) {
                 birth
             })
         }
-    }, [name, gender, birth])
+    }, [name, gender, birth, setUser])
 
     return (
         <UserForm
@@ -41,7 +41,6 @@ export default function User({ setUser, user }) {
                 type="text"
                 placeholder="Nome"
                 onChange={ e => {
-                    console.log("data changed")
                     setName(e.target.value)} }
                 value={name}
             />
@@ -52,7 +51,6 @@ export default function User({ setUser, user }) {
             </select>
             <label>Data de nascimento</label>
             <input type="date" value={birth} onChange={e => {
-                console.log("data changed")
                 setBirth(e.target.value)
             }}></input>
         </UserForm>

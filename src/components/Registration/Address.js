@@ -26,7 +26,7 @@ export default function Address({ setAddress, address }) {
                 complement
             }) 
         }
-    }, [city, uf, neighborhood, number, complement])
+    }, [city, uf, neighborhood, number, complement, setAddress])
 
     return (
         <AddressForm

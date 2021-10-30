@@ -23,7 +23,7 @@ export default function UserData({ setUserData, userData }) {
                 telephone
             })
         }
-    }, [rg, email, cellphone, telephone])
+    }, [rg, email, cellphone, telephone, setUserData])
 
     return (
         <UserDataForm

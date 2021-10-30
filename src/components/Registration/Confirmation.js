@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
 export default function Confirmation({ finalData }) {
-    useEffect(() => {console.log(finalData)}, [])
 
     return (
         <ConfirmationContainer
@@ -68,7 +66,7 @@ export default function Confirmation({ finalData }) {
                 </InputRevision>
                 <InputRevision>
                     <p className="title">Complemento: </p>
-                    <p>{finalData.address.complement}</p>
+                    <p>{finalData.address.complement || "Não informado"}</p>
                 </InputRevision>
             </DataRevision>
 

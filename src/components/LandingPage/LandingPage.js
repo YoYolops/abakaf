@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import { GiPuzzle, GiTwoCoins } from 'react-icons/gi';
-import { FaRegClock } from 'react-icons/fa';
-import { SiGoogleclassroom } from 'react-icons/si';
-import InfoCard from './InfoCard';
+import { GiPuzzle } from 'react-icons/gi';
 
 import { Link } from 'react-router-dom';
 
@@ -48,7 +45,7 @@ export default function LandingPage() {
             <Directions>
                 <Link to="/">Mais informações</Link>
                 <Link to="/registration" id="second">Faça sua inscrição</Link>
-                <a href="https://wa.me/5588996988968" target="_blank" id="third">Contate-nos</a>
+                <a href="https://wa.me/5588996988968" target="_blank" rel="noreferrer" id="third">Contate-nos</a>
             </Directions>
             
         </LandingPageContainer>

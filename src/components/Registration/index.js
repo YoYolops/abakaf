@@ -10,6 +10,7 @@ import register from "../../services/register.js";
 import Inscription from "./Inscription.js";
 
 export default function Registration() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const [ user, setUser ] = useState({
         gender: "F"
     })
@@ -40,7 +41,6 @@ export default function Registration() {
                 return false
             }
             if(!user.birth || user.birth.trim() === "") {
-                console.log(user.birth)
                 setAlert({
                     active: true,
                     message: "Insira sua data de nascimento"
@@ -56,7 +56,7 @@ export default function Registration() {
                 })
                 return false
             }
-            if(!userData.email || userData.email.trim() === "") {
+            if(!userData.email || userData.email.trim() === "" || !emailRegex.test(userData.email)) {
                 setAlert({
                     active: true,
                     message: "Insira seu e-mail",
@@ -131,14 +131,12 @@ export default function Registration() {
                     id="next"
                     onClick={async () => {
                         if(!dataValidator()) return;
-                        console.log("next")
                         if(stage < 3) {
                             setStage(prevState => prevState + 1)
                         }
                         if(stage === 3) {
                             setStage(prevState => prevState + 1)
                             const resp = await register({user, userData, address});
-                            console.log(resp)
                             setServerResponse(resp);
                         }
                     }}
