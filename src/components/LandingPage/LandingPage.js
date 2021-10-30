@@ -14,7 +14,6 @@ export default function LandingPage() {
                 </HeaderTextContainer>
             </Header>
 
-
             <Presentation>
                 <h1>Apresentação</h1>
                 <div>
@@ -43,7 +42,7 @@ export default function LandingPage() {
             </Presentation>
 
             <Directions>
-                <Link to="/">Mais informações</Link>
+                <Link to="/info">Mais informações</Link>
                 <Link to="/registration" id="second">Faça sua inscrição</Link>
                 <a href="https://wa.me/5588996988968" target="_blank" rel="noreferrer" id="third">Contate-nos</a>
             </Directions>

@@ -71,6 +71,8 @@ const Value = styled.h3`
     font-size: 26px;
     font-weight: bolder;
     text-align: center;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
 `
 const Text = styled.p`
     color: #fff;
