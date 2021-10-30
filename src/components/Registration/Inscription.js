@@ -13,7 +13,7 @@ export default function Inscription({ name, token }) {
             wich === 'qr'
                 ? setQrCopyClicked(false)
                 : setPixClicked(false)
-        }, [3000])
+        }, 2000)
     }
 
     return (
@@ -26,26 +26,26 @@ export default function Inscription({ name, token }) {
             </QrCode>
             <InstructionText>Abra o app em que vai fazer a transferência, escaneie a imagem ou cole o código do QR Code</InstructionText>
             <CopyButton onClick={() => {
-                navigator.clipboard.writeText("00020126580014BR.GOV.BCB.PIX01364cf4ffc2-0f2a-41b6-9eca-0f52f04650435204000053039865406130.005802BR5921Yohan Lopes Rodrigues6009SAO PAULO61080540900062070503***6304D52C")
+                navigator.clipboard.writeText("00020126480014BR.GOV.BCB.PIX0126katia.duarte2012@gmail.com5204000053039865802BR5924KATIA MACEDO DUARTE     6008SAOPAULO62070503***630440D4")
                 setQrCopyClicked(true)
                 unclick('qr')
             }}>
                 Copiar código do QR code
                 {
                     qrCopyClicked
-                        ? <MdDone color="#95E1D3"/>
+                        ? <MdDone color="#00ff2a"/>
                         : <MdContentCopy />
                 }
             </CopyButton>
             <CopyButton onClick={() => {
-                navigator.clipboard.writeText("4cf4ffc2-0f2a-41b6-9eca-0f52f0465043");
+                navigator.clipboard.writeText("katia.duarte2012@gmail.com");
                 setPixClicked(true);
                 unclick('pix')
             }}>
                 Copiar chave pix
                 {
                     pixClicked
-                        ? <MdDone color="#95E1D3" />
+                        ? <MdDone color="#00ff2a" />
                         : <ImCopy />
                 }
             </CopyButton>
@@ -68,8 +68,8 @@ const Head = styled.h1`
 `
 const Value = styled.h3`
     color: #fff;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: bolder;
     text-align: center;
 `
 const Text = styled.p`
@@ -105,7 +105,7 @@ const QrCode = styled.section`
 `
 
 const CopyButton = styled.button`
-    width: 320px;
+    width: 300px;
     height: 60px;
     background-color: #EAFFD0;
     border-radius: 5px;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 import User from './User.js';
 import UserData from "./UserData.js";
@@ -10,6 +11,7 @@ import register from "../../services/register.js";
 import Inscription from "./Inscription.js";
 
 export default function Registration() {
+    const history = useHistory()
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const [ user, setUser ] = useState({
         gender: "F"
@@ -120,9 +122,9 @@ export default function Registration() {
                     hide={stage === 5}
                     id="back"
                     onClick={() => {
-                        if(stage > 0) setStage(prevState => prevState - 1)
+                        if(stage > 0) setStage(prevState => prevState - 1);
+                        else if(stage === 0) history.push("/")
                     }}
-                    disabled={!stage}
                 >
                     {stage < 3 ? "Voltar" : "Voltar e corrigir"}
                 </StageButton>

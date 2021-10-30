@@ -151,6 +151,10 @@ const Presentation = styled.div`
         font-weight: bolder;
         margin-bottom: 20px;
         color: #fff;
+        width: 100%;
+        text-align: left;
+        padding: 0px 0px 10px 20px;
+        border-bottom: 2px solid #fff;
     }
 
     div {
