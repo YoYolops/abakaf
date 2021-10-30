@@ -48,7 +48,7 @@ export default function Confirmation({ finalData }) {
                 </InputRevision>
                 <InputRevision>
                     <p className="title">Tel.: </p>
-                    <p>{finalData.userData.telephone}</p>
+                    <p>{finalData.userData.telephone || "Não informado"}</p>
                 </InputRevision>
                 <InputRevision>
                     <p className="title">Cidade: </p>

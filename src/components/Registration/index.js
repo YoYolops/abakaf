@@ -5,9 +5,14 @@ import UserData from "./UserData.js";
 import Address from "./Address.js";
 import Confirmation from "./Confirmation.js";
 import Alert from "../Alert.js";
+import Spinner from '../Spinner.js';
+import register from "../../services/register.js";
+import Inscription from "./Inscription.js";
 
 export default function Registration() {
-    const [ user, setUser ] = useState({})
+    const [ user, setUser ] = useState({
+        gender: "F"
+    })
     const [ userData, setUserData ] = useState({})
     const [ address, setAddress ] = useState({
         uf: "AC"
@@ -17,8 +22,13 @@ export default function Registration() {
         active: false,
         message: ""
     })
+    const [ serverResponse, setServerResponse ] = useState({})
 
-    useEffect(() => {console.log(user)}, [])
+    useEffect(() => {
+        if(Object.keys(serverResponse).length) {
+            setStage(prevState => prevState + 1)
+        }
+    }, [setStage, serverResponse])
 
     function dataValidator() {
         if(stage === 0) {
@@ -92,40 +102,49 @@ export default function Registration() {
         return true;
     }
 
+    const renderStage = {
+        "0": <User user={user} setUser={setUser}/>,
+        "1": <UserData userData={userData} setUserData={setUserData}/>,
+        "2": <Address address={address} setAddress={setAddress}/>,
+        "3": <Confirmation finalData={{ user, userData, address }}/>,
+        "4": <Spinner color="#fff"/>,
+        "5": <Inscription name={serverResponse.data?.name} token={serverResponse.data?.userId} />
+    }
+
     return (
         <RegistrationContainer>
             <Alert active={alert.active} message={alert.message}/>
-            {
-                stage === 0 
-                    ? <User user={user} setUser={setUser}/>
-                    : stage === 1
-                        ? <UserData userData={userData} setUserData={setUserData}/>
-                        : stage === 2
-                            ? <Address address={address} setAddress={setAddress}/>
-                            : <Confirmation finalData={{ user, userData, address }}/>
-                        
-            
-            }
+            { renderStage[`${stage}`] }
             <div>
-                <StageButton id="back" 
+                <StageButton
+                    hide={stage === 5}
+                    id="back"
                     onClick={() => {
                         if(stage > 0) setStage(prevState => prevState - 1)
                     }}
                     disabled={!stage}
                 >
-                    Voltar
+                    {stage < 3 ? "Voltar" : "Voltar e corrigir"}
                 </StageButton>
-                <StageButton id="next"
-                    onClick={() => {
+                <StageButton
+                    hide={stage === 5}
+                    id="next"
+                    onClick={async () => {
                         if(!dataValidator()) return;
                         console.log("next")
                         if(stage < 3) {
                             setStage(prevState => prevState + 1)
                         }
+                        if(stage === 3) {
+                            setStage(prevState => prevState + 1)
+                            const resp = await register({user, userData, address});
+                            console.log(resp)
+                            setServerResponse(resp);
+                        }
                     }}
-                    disabled={!(stage < 3)}
+                    disabled={!(stage < 4)}
                 >
-                    Próximo
+                    {stage < 3 ? "Próximo" : "Finalizar"}
                 </StageButton>
             </div>
         </RegistrationContainer>
@@ -173,6 +192,7 @@ const RegistrationContainer = styled.div`
 `
 
 const StageButton = styled.button`
+    display: ${ props => props.hide ? "none" : "unset" };
     border: none;
     outline: none;
     cursor: pointer;
