@@ -39,17 +39,18 @@ export default function User({ setUser, user }) {
             <h1>Primeiro precisamos saber quem é você!</h1>
             <input 
                 type="text"
-                placeholder="Nome"
+                placeholder="Nome Completo*"
                 onChange={ e => {
                     setName(e.target.value)} }
                 value={name}
             />
-            <label>Sexo:</label>
+            <label>Sexo:*</label>
             <select name="Sexo" value={gender} onChange={ e => setGender(e.target.value) }>
                 <option value="F">Feminino</option>
                 <option value="M">Masculino</option>
+                <option value="O">Outro</option>
             </select>
-            <label>Data de nascimento</label>
+            <label>Data de nascimento*</label>
             <input type="date" value={birth} onChange={e => {
                 setBirth(e.target.value)
             }}></input>

@@ -42,25 +42,25 @@ export default function UserData({ setUserData, userData }) {
             <h1>Agora vamos pedir algumas informações pessoais...</h1>
             <input 
                 type="text"
-                placeholder="RG"
+                placeholder="RG*"
                 onChange={ e => setRg(e.target.value) }
                 value={rg}
             />
             <input 
                 type="email"
-                placeholder="E-mail"
+                placeholder="E-mail*"
                 onChange={ e => setEmail(e.target.value) }
                 value={email}
             />
             <input 
                 type="tel"
-                placeholder="Telefone res."
+                placeholder="Tel. res. (opcional, somente números)"
                 onChange={ e => setTelephone(e.target.value) }
                 value={telephone}
             />
             <input 
                 type="tel"
-                placeholder="Nº Celular"
+                placeholder="Nº Celular* (somente números)"
                 onChange={ e => setCellphone(e.target.value) }
                 value={cellphone}
             />

@@ -1,6 +1,6 @@
 import { IoIosCloseCircle } from 'react-icons/io';
 import { FaFeatherAlt } from 'react-icons/fa';
-import { motion } from "framer-motion";
+import { Header, Title, Expander, Description } from './styles.js'
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -34,7 +34,7 @@ export default function Methodology() {
                     de idéias e o processo integrado entre teoria e
                     prática com ênfase nas discussões e nos debates,
                     mediante a utilização do recurso pedagógico.<br />
-                    - Atividades individuais e em grupo;
+                    - Atividades individuais e em grupo;<br />
                     - Atividades práticas 
                 </Description>
             </Expander>
@@ -76,39 +76,9 @@ const MethodologyContainer = styled.div`
     width: 100%;
     margin-top: 10px;
     max-width: 600px;
-    border-bottom: 2px solid #191919;
+    border-bottom: 1px solid #191919;
     padding: 0px 10px 10px 10px;
     background-color: #95E1D3;
     border-radius: 5px;
     cursor: pointer;
-`
-
-const Header = styled.header`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 32px;
-`
-
-const Expander = styled(motion.div)`
-    width: 100%;
-    display: block;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10px;
-`
-
-const Title = styled.p`
-    font-size: 18px;
-    font-weight: bolder;
-    margin-right: 10px;
-`
-
-const Description = styled(motion.p)`
-    font-size: 16px;
-    line-height: 18px;
 `

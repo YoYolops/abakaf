@@ -33,10 +33,14 @@ const AlertBackground = styled(motion.div)`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 
     p {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: bolder;
         color: #ef4325;
+        line-height: 20px;
+        text-align: center;
+        margin: 5px;
     }
 `

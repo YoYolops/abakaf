@@ -32,6 +32,7 @@ export default function Registration() {
             if(serverResponse.success) setStage(prevState => prevState + 1)
             else {
                 history.push("/error", {
+                    status: serverResponse.status,
                     error: serverResponse.message
                 })
             }
@@ -40,10 +41,10 @@ export default function Registration() {
 
     function dataValidator() {
         if(stage === 0) {
-            if(!user.name || user.name.trim() === "") {
+            if(!user.name || user.name.trim() === "" || user.name.split(" ").length < 2) {
                 setAlert({
                     active: true,
-                    message: "Insira seu nome"
+                    message: "Insira seu nome completo"
                 })
                 return false
             }
@@ -70,10 +71,17 @@ export default function Registration() {
                 })
                 return false
             }
-            if(!userData.cellphone || userData.cellphone.trim() === "") {
+            if(!userData.cellphone || userData.cellphone.trim() === "" || !Number(userData.cellphone)) {
                 setAlert({
                     active: true,
-                    message: "Insira um número de celular",
+                    message: "Insira um número de celular válido (apenas números)",
+                })
+                return false
+            }
+            if(userData.telephone && !Number(userData.telephone)) {
+                setAlert({
+                    active: true,
+                    message: "Insira um tel. válido (apenas números)",
                 })
                 return false
             }
@@ -93,6 +101,13 @@ export default function Registration() {
                 })
                 return false;
             }
+            if(!address.street || address.street.trim() === "") {
+                setAlert({
+                    active: true,
+                    message: "Insira o nome da sua rua",
+                })
+                return false;
+            }
             if(!address.number || address.number.trim() === "") {
                 setAlert({
                     active: true,
@@ -100,7 +115,6 @@ export default function Registration() {
                 })
                 return false;
             }
-            
         }
         setAlert({
             active: false,

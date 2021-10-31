@@ -61,6 +61,10 @@ export default function Confirmation({ finalData }) {
                     <p>{finalData.address.neighborhood}</p>
                 </InputRevision>
                 <InputRevision>
+                    <p className="title">Rua: </p>
+                    <p>{finalData.address.street}</p>
+                </InputRevision>
+                <InputRevision>
                     <p className="title">Número: </p>
                     <p>{finalData.address.number}</p>
                 </InputRevision>
@@ -69,7 +73,6 @@ export default function Confirmation({ finalData }) {
                     <p>{finalData.address.complement || "Não informado"}</p>
                 </InputRevision>
             </DataRevision>
-
         </ConfirmationContainer>
     )
 }

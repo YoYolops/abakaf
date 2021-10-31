@@ -6,6 +6,7 @@ export default function Address({ setAddress, address }) {
     const [ city, setCity ] = useState(address.city)
     const [ uf, setUf ] = useState(address.uf)
     const [ neighborhood, setNeighborhood ] = useState(address.neighborhood)
+    const [ street, setStreet ] = useState(address.street)
     const [ number, setNumber ] = useState(address.number)
     const [ complement, setComplement ] = useState(address.complement)
 
@@ -14,6 +15,7 @@ export default function Address({ setAddress, address }) {
             city,
             uf,
             neighborhood,
+            street,
             number,
             complement
         }) 
@@ -22,11 +24,12 @@ export default function Address({ setAddress, address }) {
                 city,
                 uf,
                 neighborhood,
+                street,
                 number,
                 complement
             }) 
         }
-    }, [city, uf, neighborhood, number, complement, setAddress])
+    }, [city, uf, neighborhood, number, complement, setAddress, street])
 
     return (
         <AddressForm
@@ -46,11 +49,11 @@ export default function Address({ setAddress, address }) {
 
             <input 
                 type="text"
-                placeholder="Cidade"
+                placeholder="Cidade*"
                 onChange={ e => setCity(e.target.value) }
                 value={city}
             />
-            <label>UF:</label>
+            <label>UF:*</label>
             <select name="UF" onChange={e => setUf(e.target.value)}>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
@@ -82,15 +85,21 @@ export default function Address({ setAddress, address }) {
             </select>
             <input 
                 type="text"
-                placeholder="Bairro"
+                placeholder="Bairro*"
                 onChange={ e => setNeighborhood(e.target.value) }
                 value={neighborhood}
             />
             <input 
                 type="text"
-                placeholder="Nº"
+                placeholder="Nº*"
                 onChange={ e => setNumber(e.target.value) }
                 value={number}
+            />
+            <input 
+                type="text"
+                placeholder="Rua*"
+                onChange={ e => setStreet(e.target.value) }
+                value={street}
             />
             <input 
                 type="text"
