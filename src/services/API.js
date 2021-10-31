@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: "https://abakab.herokuapp.com"
+    baseURL: "http://localhost:4000"
 })
 
 export default API;

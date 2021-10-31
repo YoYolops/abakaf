@@ -29,9 +29,14 @@ export default function Registration() {
 
     useEffect(() => {
         if(Object.keys(serverResponse).length) {
-            setStage(prevState => prevState + 1)
+            if(serverResponse.success) setStage(prevState => prevState + 1)
+            else {
+                history.push("/error", {
+                    error: serverResponse.message
+                })
+            }
         }
-    }, [setStage, serverResponse])
+    }, [setStage, serverResponse, history])
 
     function dataValidator() {
         if(stage === 0) {
