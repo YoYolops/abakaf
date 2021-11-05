@@ -28,4 +28,5 @@ export const Title = styled.p`
 export const Description = styled(motion.p)`
     font-size: 16px;
     line-height: 18px;
+    color: ${props => props.color ? props.color : "unset"}
 `
