@@ -43,7 +43,7 @@ export default function LandingPage() {
 
             <Directions>
                 <Link to="/info">Mais informações</Link>
-                <Link to="/registration" id="second">Faça sua inscrição</Link>
+                <Link to="/" id="second">Inscrições encerradas</Link>
                 <a href="https://wa.me/5588996988968" target="_blank" rel="noreferrer" id="third">Contate-nos</a>
             </Directions>
             

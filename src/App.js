@@ -11,7 +11,6 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={LandingPage}/>
-        <Route exact path="/registration" component={Registration}/>
         <Route exact path="/info" component={Info} />
         <Route exact path="/error" component={ErrorScreen} />
         <Route exact path="/root">
